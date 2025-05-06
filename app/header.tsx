@@ -1,9 +1,7 @@
 'use client'
+import Image from 'next/image'
 import { TextEffect } from '@/components/ui/text-effect'
 import Link from 'next/link'
-
-export function Header() {
- import Image from 'next/image'
 
 export function Header() {
   return (
