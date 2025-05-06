@@ -61,9 +61,9 @@ export function Footer() {
     <footer className="mt-8 border-t border-zinc-200 px-0 py-4 dark:border-zinc-800">
       <div className="flex items-center justify-between">
         <TextLoop className="text-xs text-zinc-500" interval={3000}>
-          <span>© 2025</span>
-          <span>Leo Alexander</span>
-        </TextLoop>
+  <span>© 2025</span>
+  <span>Leo Alexander</span>
+</TextLoop>
         <div className="text-xs text-zinc-400">
           <ThemeSwitch />
         </div>
