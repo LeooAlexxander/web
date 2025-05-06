@@ -43,11 +43,7 @@ type ProjectVideoProps = {
 function ProjectVideo({ src }: ProjectVideoProps) {
   return (
     <MorphingDialog
-      transition={{
-        type: 'spring',
-        bounce: 0,
-        duration: 0.3,
-      }}
+      transition={{ type: 'spring', bounce: 0, duration: 0.3 }}
     >
       <MorphingDialogTrigger>
         <video
@@ -72,10 +68,7 @@ function ProjectVideo({ src }: ProjectVideoProps) {
           className="fixed top-6 right-6 h-fit w-fit rounded-full bg-white p-1"
           variants={{
             initial: { opacity: 0 },
-            animate: {
-              opacity: 1,
-              transition: { delay: 0.3, duration: 0.1 },
-            },
+            animate: { opacity: 1, transition: { delay: 0.3, duration: 0.1 } },
             exit: { opacity: 0, transition: { duration: 0 } },
           }}
         >
@@ -97,7 +90,7 @@ function MagneticSocialLink({
     <Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
       <a
         href={link}
-        className="group relative inline-flex shrink-0 items-center gap-[1px] rounded-full bg-zinc-100 px-2.5 py-1 text-sm text-black transition-colors duration-200 hover:bg-zinc-950 hover:text-zinc-50 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
+        className="group inline-flex shrink-0 items-center gap-[1px] rounded-full bg-zinc-100 px-2.5 py-1 text-sm text-black transition-colors duration-200 hover:bg-zinc-950 hover:text-zinc-50 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
       >
         {children}
         <svg
@@ -129,6 +122,9 @@ export default function Personal() {
       animate="visible"
     >
 
+      {/* Divider before About */}
+      <div className="border-t border-zinc-200 dark:border-zinc-800" />
+
       {/* About */}
       <motion.section
         className="py-8"
@@ -139,8 +135,8 @@ export default function Personal() {
         <p className="text-zinc-600 dark:text-zinc-400 max-w-prose">
           I’m Leo Alexander—an entrepreneur passionate about building products,
           sharing my journey, and helping others turn ideas into reality. After
-          growing up fascinated by tech and storytelling, I founded my first venture at
-          16 and have since been on a mission to learn, create, and inspire.
+          growing up fascinated by tech and storytelling, I founded my first venture
+          at 16 and have since been on a mission to learn, create, and inspire.
         </p>
       </motion.section>
 
@@ -161,7 +157,7 @@ export default function Personal() {
                 <a
                   href={project.link}
                   target="_blank"
-                  className="group relative inline-block font-[450] text-zinc-900 dark:text-zinc-50"
+                  className="group inline-block font-[450] text-zinc-900 dark:text-zinc-50"
                 >
                   {project.name}
                   <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 transition-all duration-200 group-hover:max-w-full" />
