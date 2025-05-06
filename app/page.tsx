@@ -132,20 +132,21 @@ export default function Personal() {
       animate="visible"
     >
 
+      {/* About */}
       <motion.section
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-2 text-lg font-medium">Let's Connect</h3>
-        <div className="flex items-center justify-start space-x-3">
-          {SOCIAL_LINKS.map((link) => (
-            <MagneticSocialLink key={link.label} link={link.link}>
-              {link.label}
-            </MagneticSocialLink>
-          ))}
-        </div>
+        <h3 className="mb-5 text-lg font-medium">About</h3>
+        <p className="text-zinc-600 dark:text-zinc-400 max-w-prose">
+          I’m Leo Alexander—an entrepreneur passionate about building products, sharing
+          my journey, and helping others turn ideas into reality. After growing up fascinated
+          by tech and storytelling, I founded my first venture at 16 and have since been on
+          a mission to learn, create, and inspire.
+        </p>
       </motion.section>
-    
+
+      {/* Current Projects */}
       <motion.section
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
@@ -159,12 +160,12 @@ export default function Personal() {
               </div>
               <div className="px-1">
                 <a
-                  className="font-base group relative inline-block font-[450] text-zinc-900 dark:text-zinc-50"
                   href={project.link}
                   target="_blank"
+                  className="group relative inline-block font-[450] text-zinc-900 dark:text-zinc-50"
                 >
                   {project.name}
-                  <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 transition-all duration-200 group-hover:max-w-full"></span>
+                  <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 transition-all duration-200 group-hover:max-w-full" />
                 </a>
                 <p className="text-base text-zinc-600 dark:text-zinc-400">
                   {project.description}
@@ -175,20 +176,22 @@ export default function Personal() {
         </div>
       </motion.section>
 
-    <motion.section
-  variants={VARIANTS_SECTION}
-  transition={TRANSITION_SECTION}
->
-  <h3 className="mb-5 text-lg font-medium">About</h3>
-  <p className="text-zinc-600 dark:text-zinc-400 max-w-prose">
-    I’m Leo Alexander—an entrepreneur passionate about building products,
-    sharing my journey, and helping others turn ideas into reality. After
-    growing up fascinated by tech and storytelling, I founded my first
-    venture at 16 and have since been on a mission to learn, create, and
-    inspire.
-  </p>
-</motion.section>
-      
-  </motion.main>
- )
+      {/* Let's Connect */}
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="mb-2 text-lg font-medium">Let&apos;s Connect</h3>
+        <div className="flex items-center space-x-3">
+          {SOCIAL_LINKS.map((link) => (
+            <MagneticSocialLink key={link.label} link={link.link}>
+              {link.label}
+            </MagneticSocialLink>
+          ))}
+        </div>
+      </motion.section>
+
+    </motion.main>
+  )
 }
+
