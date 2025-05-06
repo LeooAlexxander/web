@@ -131,16 +131,6 @@ export default function Personal() {
       initial="hidden"
       animate="visible"
     >
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-        <div className="flex-1">
-          <p className="text-zinc-600 dark:text-zinc-400">
-            Currently focused on building stuff and domcumenting my journey on the internet.
-          </p>
-        </div>
-      </motion.section>
 
       <motion.section
         variants={VARIANTS_SECTION}
