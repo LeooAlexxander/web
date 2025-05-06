@@ -4,9 +4,9 @@ import { useEffect, useState } from 'react'
 import { SunIcon, MoonIcon } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { AnimatedBackground } from '@/components/ui/animated-background'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
-// Theme options
+// Theme switch options
 const THEMES_OPTIONS = [
   {
     label: 'Light',
@@ -20,7 +20,7 @@ const THEMES_OPTIONS = [
   },
 ]
 
-// Theme Switcher
+// Theme toggle
 function ThemeSwitch() {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
@@ -58,26 +58,26 @@ function ThemeSwitch() {
   )
 }
 
-// Custom Text Loop Component
+// ✅ Text loop component (animated every 3s)
 function SimpleTextLoop({ items, interval = 3000 }: { items: string[]; interval?: number }) {
   const [index, setIndex] = useState(0)
 
   useEffect(() => {
-    const loop = setInterval(() => {
+    const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % items.length)
     }, interval)
-    return () => clearInterval(loop)
+    return () => clearInterval(timer)
   }, [items.length, interval])
 
   return (
-    <div className="relative h-4 w-fit overflow-hidden text-xs text-zinc-500">
+    <div className="relative h-4 w-auto text-xs text-zinc-500">
       <AnimatePresence mode="wait">
         <motion.span
           key={index}
-          initial={{ opacity: 0, y: 6 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -6 }}
-          transition={{ duration: 0.3 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.5 }}
           className="absolute"
         >
           {items[index]}
@@ -87,7 +87,7 @@ function SimpleTextLoop({ items, interval = 3000 }: { items: string[]; interval?
   )
 }
 
-// Footer
+// ✅ Footer with theme switcher and animated text
 export function Footer() {
   return (
     <footer className="mt-8 border-t border-zinc-200 px-0 py-4 dark:border-zinc-800">
