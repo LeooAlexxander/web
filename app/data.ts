@@ -18,14 +18,14 @@ export const PROJECTS: Project[] = [
     description:
       'My YouTube channel is the place where I document my journey, share my learnings and make an impact on others doing that.',
     link: 'https://www.youtube.com/@LeoSquaretoes',
-    image: '/images/youtube.png', 
+    image: '/youtube.png', 
     id: 'project1',
   },
   {
     name: 'Alchos AI',
     description: 'An AI app that helps you track your habits, achieve your goals, and do your affirmations.',
     link: 'https://x.com/LeooAlexxander',
-    image: '/images/waitlist.png', 
+    image: '/waitlist.png', 
     id: 'project2',
   },
 ]
