@@ -11,7 +11,6 @@ import {
   MorphingDialogContainer,
 } from '@/components/ui/morphing-dialog'
 import Link from 'next/link'
-import { AnimatedBackground } from '@/components/ui/animated-background'
 import {
   PROJECTS,
   SOCIAL_LINKS,
@@ -21,9 +20,7 @@ const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
+    transition: { staggerChildren: 0.15 },
   },
 }
 
@@ -32,19 +29,13 @@ const VARIANTS_SECTION = {
   visible: { opacity: 1, y: 0, filter: 'blur(0px)' },
 }
 
-const TRANSITION_SECTION = {
-  duration: 0.3,
-}
+const TRANSITION_SECTION = { duration: 0.3 }
 
-type ProjectVideoProps = {
-  src: string
-}
+type ProjectVideoProps = { src: string }
 
 function ProjectVideo({ src }: ProjectVideoProps) {
   return (
-    <MorphingDialog
-      transition={{ type: 'spring', bounce: 0, duration: 0.3 }}
-    >
+    <MorphingDialog transition={{ type: 'spring', bounce: 0, duration: 0.3 }}>
       <MorphingDialogTrigger>
         <video
           src={src}
@@ -116,18 +107,13 @@ function MagneticSocialLink({
 export default function Personal() {
   return (
     <motion.main
-      className="divide-y divide-zinc-200 dark:divide-zinc-800"
+      className="space-y-8"
       variants={VARIANTS_CONTAINER}
       initial="hidden"
       animate="visible"
     >
-
-      {/* Divider before About */}
-      <div className="border-t border-zinc-200 dark:border-zinc-800" />
-
       {/* About */}
       <motion.section
-        className="py-8"
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
@@ -135,14 +121,14 @@ export default function Personal() {
         <p className="text-zinc-600 dark:text-zinc-400 max-w-prose">
           I’m Leo Alexander—an entrepreneur passionate about building products,
           sharing my journey, and helping others turn ideas into reality. After
-          growing up fascinated by tech and storytelling, I founded my first venture
-          at 16 and have since been on a mission to learn, create, and inspire.
+          growing up fascinated by tech and storytelling, I founded my first
+          venture at 16 and have since been on a mission to learn, create, and
+          inspire.
         </p>
       </motion.section>
 
       {/* Current Projects */}
       <motion.section
-        className="py-8"
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
@@ -173,7 +159,6 @@ export default function Personal() {
 
       {/* Let's Connect */}
       <motion.section
-        className="py-8"
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
@@ -186,7 +171,6 @@ export default function Personal() {
           ))}
         </div>
       </motion.section>
-
     </motion.main>
   )
 }
