@@ -82,7 +82,7 @@ function MagneticSocialLink({
     <Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
       <a
         href={link}
-        className="group inline-flex shrink-0 items-center gap-[1px] rounded-full bg-zinc-100 px-2.5 py-1 text-sm text-black transition-colors duration-200 hover:bg-zinc-950 hover:text-zinc-50 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
+        className="group inline-flex shrink-0 items-center gap-[1px] rounded-full bg-zinc-100 px-2.5 py-1 text-sm text-black ring-1 ring-zinc-200 transition-colors duration-200 hover:bg-zinc-950 hover:text-zinc-50 dark:bg-zinc-800 dark:text-zinc-100 dark:ring-zinc-700 dark:hover:bg-zinc-700"
       >
         {children}
         <svg
@@ -129,45 +129,45 @@ export default function Personal() {
         </p>
       </motion.section>
 
-{/* Current Projects */}
-<motion.section
-  variants={VARIANTS_SECTION}
-  transition={TRANSITION_SECTION}
->
-  <h3 className="mb-2 text-lg font-medium">Current Projects</h3>
-  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-    {PROJECTS.map((project) => (
-      <div key={project.name} className="space-y-2">
-        <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-300 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
-          {project.image ? (
-            <Image
-              src={project.image}
-              alt={project.name}
-              width={800}
-              height={450}
-              className="aspect-video w-full rounded-xl object-cover"
-            />
-          ) : (
-            <ProjectVideo src={project.video!} />
-          )}
+      {/* Current Projects */}
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="mb-2 text-lg font-medium">Current Projects</h3>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {PROJECTS.map((project) => (
+            <div key={project.name} className="space-y-2">
+              <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-300 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
+                {project.image ? (
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    width={800}
+                    height={450}
+                    className="aspect-video w-full rounded-xl object-cover"
+                  />
+                ) : (
+                  <ProjectVideo src={project.video!} />
+                )}
+              </div>
+              <div className="px-1">
+                <a
+                  href={project.link}
+                  target="_blank"
+                  className="group inline-block font-[450] text-zinc-900 dark:text-zinc-50"
+                >
+                  {project.name}
+                  <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 transition-all duration-200 group-hover:max-w-full" />
+                </a>
+                <p className="text-base text-zinc-600 dark:text-zinc-400">
+                  {project.description}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
-        <div className="px-1">
-          <a
-            href={project.link}
-            target="_blank"
-            className="group inline-block font-[450] text-zinc-900 dark:text-zinc-50"
-          >
-            {project.name}
-            <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 transition-all duration-200 group-hover:max-w-full" />
-          </a>
-          <p className="text-base text-zinc-600 dark:text-zinc-400">
-            {project.description}
-          </p>
-        </div>
-      </div>
-    ))}
-  </div>
-</motion.section>
+      </motion.section>
 
       {/* Let's Connect */}
       <motion.section
@@ -186,3 +186,4 @@ export default function Personal() {
     </motion.main>
   )
 }
+
