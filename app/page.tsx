@@ -127,7 +127,7 @@ export default function Personal() {
         </p>
       </motion.section>
 
-     {/* Current Projects */}
+ {/* Current Projects */}
 <motion.section
   variants={VARIANTS_SECTION}
   transition={TRANSITION_SECTION}
@@ -137,15 +137,15 @@ export default function Personal() {
     {PROJECTS.map((project) => (
       <div key={project.name} className="space-y-2">
         <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
-          {project.video ? (
-            <ProjectVideo src={project.video} />
-          ) : project.image ? (
+          {project.image ? (
             <img
               src={project.image}
               alt={project.name}
               className="aspect-video w-full rounded-xl object-cover"
             />
-          ) : null}
+          ) : (
+            <ProjectVideo src={project.video!} />
+          )}
         </div>
         <div className="px-1">
           <a
