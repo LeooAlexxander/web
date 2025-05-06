@@ -56,7 +56,7 @@ function ThemeSwitch() {
   )
 }
 
-function SimpleTextLoop({ items, interval = 3000 }: { items: string[]; interval?: number }) {
+function HorizontalTextLoop({ items, interval = 3000 }: { items: string[]; interval?: number }) {
   const [index, setIndex] = useState(0)
 
   useEffect(() => {
@@ -67,15 +67,15 @@ function SimpleTextLoop({ items, interval = 3000 }: { items: string[]; interval?
   }, [items.length, interval])
 
   return (
-    <div className="relative h-4 w-auto text-xs text-zinc-500">
+    <div className="relative inline-block w-[150px] h-4 overflow-hidden text-xs text-zinc-500">
       <AnimatePresence mode="wait">
         <motion.span
-          key={index}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.5 }}
-          className="absolute inline-block"
+          key={items[index]}
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 20 }}
+          transition={{ duration: 0.4 }}
+          className="absolute whitespace-nowrap"
         >
           {items[index]}
         </motion.span>
@@ -88,7 +88,7 @@ export function Footer() {
   return (
     <footer className="mt-8 border-t border-zinc-200 px-0 py-4 dark:border-zinc-800">
       <div className="flex items-center justify-between">
-        <SimpleTextLoop items={['© 2025', 'Leo Alexander']} interval={3000} />
+        <HorizontalTextLoop items={['© 2025 • Leo Alexander']} interval={3000} />
         <div className="text-xs text-zinc-400">
           <ThemeSwitch />
         </div>
