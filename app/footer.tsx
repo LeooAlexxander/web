@@ -1,11 +1,12 @@
 'use client'
 
-import { AnimatedBackground } from '@/components/ui/animated-background'
-import { TextLoop } from '@/components/ui/text-loop'
+import { useEffect, useState } from 'react'
 import { SunIcon, MoonIcon } from 'lucide-react'
 import { useTheme } from 'next-themes'
-import { useEffect, useState } from 'react'
+import { AnimatedBackground } from '@/components/ui/animated-background'
+import { AnimatePresence, motion } from 'framer-motion'
 
+// Theme options
 const THEMES_OPTIONS = [
   {
     label: 'Light',
@@ -19,6 +20,7 @@ const THEMES_OPTIONS = [
   },
 ]
 
+// Theme Switcher
 function ThemeSwitch() {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
@@ -56,14 +58,41 @@ function ThemeSwitch() {
   )
 }
 
+// Custom Text Loop Component
+function SimpleTextLoop({ items, interval = 3000 }: { items: string[]; interval?: number }) {
+  const [index, setIndex] = useState(0)
+
+  useEffect(() => {
+    const loop = setInterval(() => {
+      setIndex((prev) => (prev + 1) % items.length)
+    }, interval)
+    return () => clearInterval(loop)
+  }, [items.length, interval])
+
+  return (
+    <div className="relative h-4 w-fit overflow-hidden text-xs text-zinc-500">
+      <AnimatePresence mode="wait">
+        <motion.span
+          key={index}
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -6 }}
+          transition={{ duration: 0.3 }}
+          className="absolute"
+        >
+          {items[index]}
+        </motion.span>
+      </AnimatePresence>
+    </div>
+  )
+}
+
+// Footer
 export function Footer() {
   return (
     <footer className="mt-8 border-t border-zinc-200 px-0 py-4 dark:border-zinc-800">
       <div className="flex items-center justify-between">
-        <TextLoop className="text-xs text-zinc-500" interval={3000}>
-  <span>© 2025</span>
-  <span>Leo Alexander</span>
-</TextLoop>
+        <SimpleTextLoop items={['© 2025', 'Leo Alexander']} interval={3000} />
         <div className="text-xs text-zinc-400">
           <ThemeSwitch />
         </div>
