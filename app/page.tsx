@@ -14,9 +14,6 @@ import Link from 'next/link'
 import { AnimatedBackground } from '@/components/ui/animated-background'
 import {
   PROJECTS,
-  WORK_EXPERIENCE,
-  BLOG_POSTS,
-  EMAIL,
   SOCIAL_LINKS,
 } from './data'
 
@@ -116,7 +113,7 @@ function MagneticSocialLink({
             fill="currentColor"
             fillRule="evenodd"
             clipRule="evenodd"
-          ></path>
+          />
         </svg>
       </a>
     </Magnetic>
@@ -126,7 +123,7 @@ function MagneticSocialLink({
 export default function Personal() {
   return (
     <motion.main
-      className="space-y-8"
+      className="divide-y divide-zinc-200 dark:divide-zinc-800"
       variants={VARIANTS_CONTAINER}
       initial="hidden"
       animate="visible"
@@ -134,20 +131,22 @@ export default function Personal() {
 
       {/* About */}
       <motion.section
+        className="py-8"
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
         <h3 className="mb-5 text-lg font-medium">About</h3>
         <p className="text-zinc-600 dark:text-zinc-400 max-w-prose">
-          I’m Leo Alexander—an entrepreneur passionate about building products, sharing
-          my journey, and helping others turn ideas into reality. After growing up fascinated
-          by tech and storytelling, I founded my first venture at 16 and have since been on
-          a mission to learn, create, and inspire.
+          I’m Leo Alexander—an entrepreneur passionate about building products,
+          sharing my journey, and helping others turn ideas into reality. After
+          growing up fascinated by tech and storytelling, I founded my first venture at
+          16 and have since been on a mission to learn, create, and inspire.
         </p>
       </motion.section>
 
       {/* Current Projects */}
       <motion.section
+        className="py-8"
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
@@ -178,6 +177,7 @@ export default function Personal() {
 
       {/* Let's Connect */}
       <motion.section
+        className="py-8"
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
@@ -194,4 +194,3 @@ export default function Personal() {
     </motion.main>
   )
 }
-
