@@ -6,10 +6,10 @@ import { TextEffect } from '@/components/ui/text-effect'
 export function Header() {
   return (
     <header className="mb-8 flex flex-col items-start space-y-2">
-      {/* ① Circular avatar container */}
-      <div className="w-20 h-20 rounded-full overflow-hidden">
+      {/* ① Circular avatar container with border */}
+      <div className="w-20 h-20 rounded-full overflow-hidden ring-2 ring-zinc-200 dark:ring-zinc-700">
         <Image
-          src="/avatar.jpg"      // make sure this matches your file in /public
+          src="/avatar.jpg"      
           alt="Leo Alexander"
           width={80}
           height={80}
