@@ -161,8 +161,6 @@ export default function Personal() {
           ))}
         </div>
       </motion.section>
-    </motion.main>
-  )
     
       <motion.section
         variants={VARIANTS_SECTION}
@@ -228,4 +226,7 @@ export default function Personal() {
           </AnimatedBackground>
         </div>
       </motion.section>
+      
+  </motion.main>
+ )
 }
