@@ -27,9 +27,7 @@ function ThemeSwitch() {
     setMounted(true)
   }, [])
 
-  if (!mounted) {
-    return null
-  }
+  if (!mounted) return null
 
   return (
     <AnimatedBackground
@@ -42,7 +40,11 @@ function ThemeSwitch() {
       {THEMES_OPTIONS.map((opt) => (
         <button
           key={opt.id}
-          className="inline-flex h-7 w-7 items-center justify-center text-zinc-500 transition-colors duration-100 focus-visible:outline-2 data-[checked=true]:text-zinc-950 dark:text-zinc-400 dark:data-[checked=true]:text-zinc-50"
+          className={`inline-flex h-7 w-7 items-center justify-center rounded-md transition-colors duration-150 focus-visible:outline-2
+            ${theme === opt.id
+              ? 'bg-zinc-300 text-zinc-900 dark:bg-zinc-700 dark:text-white'
+              : 'text-zinc-500 dark:text-zinc-400'
+            }`}
           type="button"
           aria-label={`Switch to ${opt.label} theme`}
           data-id={opt.id}
@@ -58,7 +60,7 @@ export function Footer() {
   return (
     <footer className="mt-8 border-t border-zinc-200 px-0 py-4 dark:border-zinc-800">
       <div className="flex items-center justify-between">
-        <TextLoop className="text-xs text-zinc-500">
+        <TextLoop className="text-xs text-zinc-500" interval={5000}>
           <span>© 2025</span>
           <span>Leo Alexander</span>
         </TextLoop>
