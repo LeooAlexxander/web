@@ -11,6 +11,7 @@ import {
   MorphingDialogContainer,
 } from '@/components/ui/morphing-dialog'
 import Link from 'next/link'
+import Image from 'next/image'
 import {
   PROJECTS,
   SOCIAL_LINKS,
