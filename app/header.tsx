@@ -7,7 +7,7 @@ export function Header() {
   return (
     <header className="mb-8 flex flex-col items-start space-y-2">
       {/* ① Circular avatar container with border */}
-      <div className="p-1 rounded-full ring-[3px] ring-zinc-200 dark:ring-zinc-800">
+      <div className="p-[3px] rounded-full ring-1 ring-zinc-200 dark:ring-zinc-800">
   <div className="w-20 h-20 overflow-hidden rounded-full">
     <Image
       src="/avatar.jpg"
@@ -18,7 +18,7 @@ export function Header() {
     />
   </div>
 </div>
-
+    
       {/* ② Name and role */}
       <div className="flex flex-col items-start">
         <Link
