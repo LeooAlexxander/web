@@ -126,7 +126,7 @@ function MagneticSocialLink({
 export default function Personal() {
   return (
     <motion.main
-      className="space-y-24"
+      className="space-y-8"
       variants={VARIANTS_CONTAINER}
       initial="hidden"
       animate="visible"
