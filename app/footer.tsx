@@ -1,12 +1,11 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { AnimatedBackground } from '@/components/ui/animated-background'
 import { SunIcon, MoonIcon } from 'lucide-react'
 import { useTheme } from 'next-themes'
-import { AnimatedBackground } from '@/components/ui/animated-background'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 
-// Theme switch options
 const THEMES_OPTIONS = [
   {
     label: 'Light',
@@ -20,7 +19,6 @@ const THEMES_OPTIONS = [
   },
 ]
 
-// Theme toggle
 function ThemeSwitch() {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
@@ -58,7 +56,6 @@ function ThemeSwitch() {
   )
 }
 
-// ✅ Text loop component (animated every 3s)
 function SimpleTextLoop({ items, interval = 3000 }: { items: string[]; interval?: number }) {
   const [index, setIndex] = useState(0)
 
@@ -78,7 +75,7 @@ function SimpleTextLoop({ items, interval = 3000 }: { items: string[]; interval?
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.5 }}
-          className="absolute"
+          className="absolute inline-block"
         >
           {items[index]}
         </motion.span>
@@ -87,7 +84,6 @@ function SimpleTextLoop({ items, interval = 3000 }: { items: string[]; interval?
   )
 }
 
-// ✅ Footer with theme switcher and animated text
 export function Footer() {
   return (
     <footer className="mt-8 border-t border-zinc-200 px-0 py-4 dark:border-zinc-800">
