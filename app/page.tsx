@@ -117,8 +117,9 @@ export default function Personal() {
       <motion.section
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
+        className="space-y-2"
       >
-        <h3 className="mb-5 text-lg font-medium">About</h3>
+        <h3 className="text-lg font-medium">About</h3>
         <p className="text-zinc-600 dark:text-zinc-400 max-w-prose">
           I’m Leo Alexander—an entrepreneur passionate about building products,
           sharing my journey, and helping others turn ideas into reality. After
