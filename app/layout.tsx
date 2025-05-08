@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from 'next'
+ import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { Header } from './header'
@@ -35,8 +35,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full bg-white text-black dark:bg-zinc-950 dark:text-white">
       <body
-        className={`${geist.variable} ${geistMono.variable} h-full min-h-screen bg-white dark:bg-zinc-950 tracking-tight antialiased`}
-        style={{ WebkitTapHighlightColor: 'transparent' }}
+        className={`${geist.variable} ${geistMono.variable} min-h-screen flex flex-col bg-white dark:bg-zinc-950 tracking-tight antialiased`}
+        style={{
+          WebkitTapHighlightColor: 'transparent',
+          minHeight: '100svh', // ← fixes mobile browser issues
+        }}
       >
         <ThemeProvider
           enableSystem
@@ -44,7 +47,7 @@ export default function RootLayout({
           storageKey="theme"
           defaultTheme="system"
         >
-          <div className="flex min-h-screen w-full flex-col font-[family-name:var(--font-inter-tight)]">
+          <div className="flex flex-1 flex-col font-[family-name:var(--font-inter-tight)]">
             <div className="relative mx-auto w-full max-w-screen-sm flex-1 px-4 pt-20">
               <Header />
               {children}
