@@ -20,16 +20,19 @@
   }
 }
 
-/* ✅ Add this block at the very bottom */
 html,
 body {
-  min-height: 100%;
-  background-color: #fff;
-  color: #000;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #000000;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .dark html,
 .dark body {
-  background-color: #09090b; /* matches dark:bg-zinc-950 */
-  color: #fff;
+  background-color: #09090b;
+  color: #ffffff;
 }
