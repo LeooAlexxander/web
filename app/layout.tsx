@@ -51,11 +51,14 @@ export default function RootLayout({
           defaultTheme="system"
         >
           <div className="flex flex-1 flex-col font-[family-name:var(--font-inter-tight)]">
+            {/* Content container */}
             <div className="relative mx-auto w-full max-w-screen-sm flex-1 px-4 pt-20 overflow-x-hidden">
               <Header />
               {children}
-              <Footer />
             </div>
+
+            {/* Footer placed OUTSIDE content width limit */}
+            <Footer />
           </div>
         </ThemeProvider>
       </body>
