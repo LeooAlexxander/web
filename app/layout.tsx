@@ -29,39 +29,25 @@ const geistMono = Geist_Mono({
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode
-}) {
+}>) {
   return (
-    <html
-      lang="en"
-      className="h-full bg-white text-black dark:bg-zinc-950 dark:text-white"
-    >
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geist.variable} ${geistMono.variable} min-h-screen flex flex-col bg-white dark:bg-zinc-950 tracking-tight antialiased overflow-x-hidden`}
-        style={{
-          WebkitTapHighlightColor: 'transparent',
-          minHeight: '100svh',
-        }}
+        className={`${geist.variable} ${geistMono.variable} bg-white tracking-tight antialiased dark:bg-zinc-950`}
       >
         <ThemeProvider
-          enableSystem
+          enableSystem={true}
           attribute="class"
           storageKey="theme"
           defaultTheme="system"
         >
-          <div className="flex flex-1 flex-col font-[family-name:var(--font-inter-tight)]">
-            {/* Main content container */}
-            <div className="relative mx-auto w-full max-w-screen-sm flex-1 px-4 pt-20 overflow-x-hidden">
+          <div className="flex min-h-screen w-full flex-col font-[family-name:var(--font-inter-tight)]">
+            <div className="relative mx-auto w-full max-w-screen-sm flex-1 px-4 pt-20">
               <Header />
               {children}
-            </div>
-
-            {/* Footer with same max-width container inside */}
-            <div className="w-full border-t border-zinc-200 dark:border-zinc-800">
-              <div className="mx-auto w-full max-w-screen-sm px-4">
-                <Footer />
-              </div>
+              <Footer />
             </div>
           </div>
         </ThemeProvider>
