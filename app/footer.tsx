@@ -56,7 +56,13 @@ function ThemeSwitch() {
   )
 }
 
-function HorizontalTextLoop({ items, interval = 3000 }: { items: string[]; interval?: number }) {
+function HorizontalTextLoop({
+  items,
+  interval = 3000,
+}: {
+  items: string[]
+  interval?: number
+}) {
   const [index, setIndex] = useState(0)
 
   useEffect(() => {
@@ -86,9 +92,12 @@ function HorizontalTextLoop({ items, interval = 3000 }: { items: string[]; inter
 
 export function Footer() {
   return (
-    <footer className="mt-8 border-t border-zinc-200 px-0 py-4 dark:border-zinc-800">
+    <footer className="mt-8 border-t border-zinc-200 bg-white dark:bg-zinc-950 px-0 py-4 dark:border-zinc-800">
       <div className="flex items-center justify-between">
-        <HorizontalTextLoop items={['© 2025 • Leo Alexander']} interval={3000} />
+        <HorizontalTextLoop
+          items={['© 2025', 'Leo Alexander']}
+          interval={3000}
+        />
         <div className="text-xs text-zinc-400">
           <ThemeSwitch />
         </div>
