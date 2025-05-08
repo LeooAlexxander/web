@@ -51,14 +51,18 @@ export default function RootLayout({
           defaultTheme="system"
         >
           <div className="flex flex-1 flex-col font-[family-name:var(--font-inter-tight)]">
-            {/* Content container */}
+            {/* Main content container */}
             <div className="relative mx-auto w-full max-w-screen-sm flex-1 px-4 pt-20 overflow-x-hidden">
               <Header />
               {children}
             </div>
 
-            {/* Footer placed OUTSIDE content width limit */}
-            <Footer />
+            {/* Footer with same max-width container inside */}
+            <div className="w-full border-t border-zinc-200 dark:border-zinc-800">
+              <div className="mx-auto w-full max-w-screen-sm px-4">
+                <Footer />
+              </div>
+            </div>
           </div>
         </ThemeProvider>
       </body>
