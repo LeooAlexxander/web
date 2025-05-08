@@ -19,3 +19,17 @@
     border-color: var(--color-gray-200, currentColor);
   }
 }
+
+/* ✅ Add this block at the very bottom */
+html,
+body {
+  min-height: 100%;
+  background-color: #fff;
+  color: #000;
+}
+
+.dark html,
+.dark body {
+  background-color: #09090b; /* matches dark:bg-zinc-950 */
+  color: #fff;
+}
