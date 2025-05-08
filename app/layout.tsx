@@ -4,13 +4,11 @@ import './globals.css'
 import { Header } from './header'
 import { Footer } from './footer'
 import { ThemeProvider } from 'next-themes'
-import Head from 'next/head'
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   themeColor: '#ffffff',
-  viewportFit: 'cover', // Ensure viewport respects iPhone safe areas
 }
 
 export const metadata: Metadata = {
@@ -40,15 +38,8 @@ export default function RootLayout({
       className="min-h-screen bg-white text-black dark:bg-zinc-950 dark:text-white"
       suppressHydrationWarning
     >
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-      </Head>
       <body
-        className={`${geist.variable} ${geistMono.variable} min-h-screen bg-white dark:bg-zinc-950 tracking-tight antialiased`}
-        style={{
-          paddingTop: 'env(safe-area-inset-top)', // Respect iPhone notch space
-          paddingBottom: 'env(safe-area-inset-bottom)', // Respect bottom safe area
-        }}
+        className={${geist.variable} ${geistMono.variable} min-h-screen bg-white dark:bg-zinc-950 tracking-tight antialiased}
       >
         <ThemeProvider
           enableSystem={true}
@@ -68,4 +59,3 @@ export default function RootLayout({
     </html>
   )
 }
-
