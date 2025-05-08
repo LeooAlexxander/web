@@ -33,13 +33,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="min-h-screen bg-white text-black dark:bg-zinc-950 dark:text-white">
+    <html lang="en" className="h-full bg-white text-black dark:bg-zinc-950 dark:text-white">
       <body
-        className={`${geist.variable} ${geistMono.variable} min-h-screen bg-white dark:bg-zinc-950 tracking-tight antialiased`}
+        className={`${geist.variable} ${geistMono.variable} h-full min-h-screen bg-white dark:bg-zinc-950 tracking-tight antialiased`}
         style={{ WebkitTapHighlightColor: 'transparent' }}
       >
         <ThemeProvider
-          enableSystem={true}
+          enableSystem
           attribute="class"
           storageKey="theme"
           defaultTheme="system"
