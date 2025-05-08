@@ -1,5 +1,4 @@
 'use client'
-
 import { AnimatedBackground } from '@/components/ui/animated-background'
 import { SunIcon, MoonIcon } from 'lucide-react'
 import { useTheme } from 'next-themes'
@@ -22,13 +21,10 @@ const THEMES_OPTIONS = [
 function ThemeSwitch() {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
-
   useEffect(() => {
     setMounted(true)
   }, [])
-
   if (!mounted) return null
-
   return (
     <AnimatedBackground
       className="pointer-events-none rounded-lg bg-zinc-100 dark:bg-zinc-800"
@@ -56,50 +52,17 @@ function ThemeSwitch() {
   )
 }
 
-function HorizontalTextLoop({
-  items,
-  interval = 3000,
-}: {
-  items: string[]
-  interval?: number
-}) {
-  const [index, setIndex] = useState(0)
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % items.length)
-    }, interval)
-    return () => clearInterval(timer)
-  }, [items.length, interval])
-
-  return (
-    <div className="relative inline-block w-[150px] h-4 overflow-hidden text-xs text-zinc-500">
-      <AnimatePresence mode="wait">
-        <motion.span
-          key={items[index]}
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: 20 }}
-          transition={{ duration: 0.4 }}
-          className="absolute whitespace-nowrap"
-        >
-          {items[index]}
-        </motion.span>
-      </AnimatePresence>
-    </div>
-  )
-}
-
 export function Footer() {
   return (
-    <footer className="mt-8 border-t border-zinc-200 bg-white dark:bg-zinc-950 px-0 py-4 dark:border-zinc-800">
-      <div className="flex items-center justify-between">
-        <HorizontalTextLoop
-          items={['© 2025', 'Leo Alexander']}
-          interval={3000}
-        />
-        <div className="text-xs text-zinc-400">
-          <ThemeSwitch />
+    <footer className="mt-8 bg-transparent dark:bg-black py-4">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between">
+          <div className="text-xs text-zinc-500">
+            © 2025 • Leo Alexander
+          </div>
+          <div className="text-xs text-zinc-400">
+            <ThemeSwitch />
+          </div>
         </div>
       </div>
     </footer>
