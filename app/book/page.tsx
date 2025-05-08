@@ -2,12 +2,6 @@
 
 import Cal, { getCalApi } from '@calcom/embed-react'
 import { useEffect } from 'react'
-import type { Metadata } from 'next'
-
-export const metadata: Metadata = {
-  title: 'Book a Discovery Call | Leo Alexander',
-  description: 'Schedule a 30-minute discovery session with Leo Alexander.',
-}
 
 export default function BookPage() {
   useEffect(() => {
