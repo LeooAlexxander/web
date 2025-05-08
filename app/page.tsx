@@ -121,11 +121,11 @@ export default function Personal() {
       >
         <h3 className="text-lg font-medium">About</h3>
         <p className="text-zinc-600 dark:text-zinc-400 max-w-prose">
-          I’m Leo Alexander—an entrepreneur passionate about building products,
-          sharing my journey, and helping others turn ideas into reality. After
-          growing up fascinated by tech and storytelling, I founded my first
-          venture at 16 and have since been on a mission to learn, create, and
-          inspire.
+          Hey, I’m Leo Alexander ⎯ a 16 y/o passionate about building 
+          stuff on the internet, thinking about life and humanity, as well as 
+          sharing my journey online to inspire and connect with like-minded. I
+          like reading books, doing sports, and dreaming. Lately, I've even 
+          been getting into psychology, philosophy, meta-physics.
         </p>
       </motion.section>
 
