@@ -34,10 +34,10 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
-      className="min-h-screen bg-white text-black dark:bg-zinc-950 dark:text-white"
-      suppressHydrationWarning
-    >
+  lang="en"
+  className="min-h-screen bg-white text-black dark:bg-zinc-950 dark:text-white"
+  suppressHydrationWarning
+>
       <body
         className={${geist.variable} ${geistMono.variable} min-h-screen bg-white dark:bg-zinc-950 tracking-tight antialiased}
       >
