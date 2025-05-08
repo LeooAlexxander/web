@@ -9,31 +9,34 @@ export default function BookPage() {
     script.async = true
     script.onload = () => {
       // @ts-ignore
-      Cal('init', '30min', { origin: 'https://cal.com' })
-      // @ts-ignore
-      Cal.ns['30min']('inline', {
-        elementOrSelector: '#my-cal-inline',
-        config: { layout: 'month_view' },
-        calLink: 'leooalexxander/30min',
-      })
-      // @ts-ignore
-      Cal.ns['30min']('ui', {
-        cssVarsPerTheme: {
-          light: { 'cal-brand': '#292929' },
-          dark: { 'cal-brand': '#fec205' },
-        },
-        hideEventTypeDetails: false,
-        layout: 'month_view',
-      })
+      if (window.Cal) {
+        // @ts-ignore
+        window.Cal('init', '30min', { origin: 'https://cal.com' })
+        // @ts-ignore
+        window.Cal.ns['30min']('inline', {
+          elementOrSelector: '#my-cal-inline',
+          config: { layout: 'month_view' },
+          calLink: 'leooalexxander/30min',
+        })
+        // @ts-ignore
+        window.Cal.ns['30min']('ui', {
+          cssVarsPerTheme: {
+            light: { 'cal-brand': '#292929' },
+            dark: { 'cal-brand': '#fec205' },
+          },
+          hideEventTypeDetails: false,
+          layout: 'month_view',
+        })
+      }
     }
-    document.head.appendChild(script)
+    document.body.appendChild(script)
   }, [])
 
   return (
     <main className="min-h-screen p-4">
       <div
         id="my-cal-inline"
-        style={{ width: '100%', height: '100%', overflow: 'scroll' }}
+        style={{ width: '100%', height: '800px', overflow: 'auto' }}
       />
     </main>
   )
