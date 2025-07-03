@@ -37,7 +37,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
   {
     label: 'YouTube',
-    link: 'https://www.youtube.com/@LeoSquaretoes',
+    link: 'https://www.youtube.com/@LeoAlexxander',
   },
   {
     label: 'Instagram',
